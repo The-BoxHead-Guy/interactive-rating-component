@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  /* Colors */
+  --orange: hsl(25, 97%, 53%);
+  --dark-blue: hsl(228, 45%, 44%);
+  --slate-blue: hsl(213, 19%, 18%);
+  --slate-blue-darker: hsl(213, 11%, 9%);
+  --intense-dark-blue: hsl(216, 12%, 8%);
+
+  /* Neutral */
+  --white: hsl(0, 0%, 100%);
+  --light-grey: hsl(217, 12%, 63%);
+  --medium-grey: hsl(216, 12%, 54%);
+
+  /* Typography */
+  --base-font-size: 15px;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  --font-family-default: "Overpass", sans-serif;
+
+  /* Dimensions */
+  --borders: 1.5rem;
+}
+
+html {
+  font-size: var(--base-font-size);
+  font-weight: var(--font-weight-regular);
+  font-family: var(--font-family-default);
+}
+
+body {
+  background-color: var(--intense-dark-blue);
+  color: var(--white);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Component */
+.rating-card {
+  padding: 2rem;
+  width: min(75%, 30rem);
+  background: linear-gradient(
+    to bottom,
+    var(--slate-blue) 0%,
+    var(--slate-blue-darker) 100%
+  );
+  border-radius: var(--borders);
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  & .star {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--slate-blue-darker);
+    padding: 1rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .title {
+    font-size: 2.2rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 0;
+  }
+
+  & .msg {
+    color: var(--light-grey);
+    font-size: 1.4rem;
+  }
+
+  & .rating {
+    /* Container query for buttons */
+    container-type: inline-size;
+    container-name: buttons;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-block-end: 2rem;
+
+    & button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background-color: var(--slate-blue);
+      border-radius: 50%;
+      width: 3.5rem;
+      height: 3.5rem;
+      color: var(--light-grey);
+      font-weight: var(--font-weight-bold);
+      cursor: pointer;
+      text-align: center;
+
+      & p {
+        line-height: 1;
+        margin: 0;
+      }
+    }
+  }
+
+  & .submit {
+    width: 100%;
+    border: none;
+    border-radius: 3rem;
+    background-color: var(--orange);
+    color: var(--white);
+
+    & p.submit-text {
+      font-size: 1.4rem;
+      font-weight: var(--font-weight-bold);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      line-height: 1.5;
+      margin-block: 1rem;
+    }
+  }
+}
+
+@container buttons (min-width: 450px) {
+  .rating-card .rating button {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}
