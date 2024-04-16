@@ -39,6 +39,8 @@ body {
   align-items: center;
   min-height: 100vh;
   min-width: 100vw;
+
+  position: relative;
 }
 
 p {
@@ -200,6 +202,19 @@ p {
     & .msg {
       margin-block: 1rem;
     }
+  }
+}
+
+.error {
+  display: none;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  margin-block-start: 0.75rem;
+
+  & .error__msg {
+    color: var(--medium-grey);
   }
 }
 
