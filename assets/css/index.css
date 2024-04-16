@@ -143,13 +143,15 @@ p {
     border-radius: 3rem;
     background-color: var(--orange);
     color: var(--white);
+    cursor: pointer;
+
+    transition: all 0.2s ease-in-out;
 
     transition: all 0.2s ease-in-out;
 
     & p.submit-text {
       font-size: 1.4rem;
       font-weight: var(--font-weight-bold);
-      cursor: pointer;
       text-transform: uppercase;
       letter-spacing: 0.2rem;
       line-height: 1.5;
